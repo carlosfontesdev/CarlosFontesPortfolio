@@ -1,0 +1,445 @@
+.portfolio-page {
+    color: #f4fbfb;
+    display: grid;
+    grid-template-columns: minmax(220px, 24vw) minmax(0, 1fr);
+    min-height: 100vh;
+    overflow: clip;
+    position: relative;
+    background:
+        radial-gradient(circle at 78% 10%, rgba(67, 212, 192, 0.13), transparent 26rem),
+        radial-gradient(circle at 56% 88%, rgba(86, 120, 255, 0.10), transparent 28rem),
+        linear-gradient(135deg, #071818 0%, #102423 45%, #071011 100%);
+}
+
+.portfolio-page::before {
+    animation: drift 20s ease-in-out infinite alternate;
+    background:
+        linear-gradient(rgba(244, 251, 251, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 251, 251, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+    content: "";
+    inset: 0;
+    mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.45) 62%, transparent 100%);
+    pointer-events: none;
+    position: fixed;
+}
+
+.portfolio-page::after {
+    animation: scanline 9s ease-in-out infinite alternate;
+    background: linear-gradient(120deg, transparent 0%, rgba(67, 212, 192, 0.08) 48%, transparent 58%);
+    content: "";
+    height: 100%;
+    left: -35%;
+    opacity: 0.65;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    transform: skewX(-12deg);
+    width: 24%;
+}
+
+.portfolio-sidebar {
+    align-self: start;
+    display: grid;
+    gap: 1.2rem;
+    grid-template-rows: auto min-content 1fr;
+    min-height: 100vh;
+    padding: clamp(0.85rem, 2.2vw, 1.9rem);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.profile-card {
+    align-self: start;
+    background: rgba(6, 18, 18, 0.78);
+    border: 1px solid rgba(67, 212, 192, 0.18);
+    border-radius: 8px;
+    box-shadow: 0 18px 56px rgba(0, 0, 0, 0.30);
+    display: grid;
+    gap: 0.7rem;
+    max-width: 17.5rem;
+    overflow: hidden;
+    padding: clamp(0.75rem, 1.4vw, 0.95rem);
+    position: sticky;
+    top: clamp(0.85rem, 2.2vw, 1.9rem);
+}
+
+.profile-orbit {
+    aspect-ratio: 1;
+    border: 1px solid rgba(67, 212, 192, 0.28);
+    border-radius: 999px;
+    opacity: 0.72;
+    position: absolute;
+    right: -4.5rem;
+    top: -5.5rem;
+    width: 8rem;
+}
+
+.profile-photo {
+    aspect-ratio: 1;
+    border: 2px solid rgba(67, 212, 192, 0.36);
+    border-radius: 999px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+    object-fit: cover;
+    object-position: center top;
+    position: relative;
+    width: min(100%, 6.6rem);
+}
+
+.profile-kicker,
+.eyebrow {
+    color: #43d4c0;
+    font-size: clamp(0.8rem, 1.15vw, 1rem);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    margin: 0 0 0.55rem;
+    text-transform: uppercase;
+}
+
+.profile-card h1 {
+    font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+    line-height: 1;
+    margin: 0;
+}
+
+.role-text {
+    color: #eaf7f6;
+    font-size: 0.88rem;
+    margin: 0.35rem 0 0;
+}
+
+.profile-note {
+    color: rgba(234, 247, 246, 0.62);
+    font-size: 0.74rem;
+    line-height: 1.45;
+    margin: 0.3rem 0 0;
+}
+
+.cv-download {
+    align-items: center;
+    border: 1px solid rgba(67, 212, 192, 0.34);
+    border-radius: 8px;
+    color: #f4fbfb;
+    display: inline-grid;
+    font-size: 0.78rem;
+    font-weight: 700;
+    gap: 0.45rem;
+    grid-template-columns: 0.95rem auto;
+    margin-top: 0.65rem;
+    padding: 0.52rem 0.65rem;
+    text-decoration: none;
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.cv-download:hover {
+    background: rgba(67, 212, 192, 0.12);
+    border-color: rgba(67, 212, 192, 0.68);
+    transform: translateY(-0.12rem);
+}
+
+.cv-download svg {
+    fill: none;
+    height: 0.95rem;
+    stroke: #43d4c0;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    width: 0.95rem;
+}
+
+.portfolio-nav {
+    align-content: start;
+    display: grid;
+    gap: 0.75rem;
+    margin-top: clamp(0.8rem, 3vh, 1.8rem);
+}
+
+.nav-entry {
+    align-items: center;
+    border-left: 2px solid rgba(255, 255, 255, 0.16);
+    color: rgba(244, 251, 251, 0.56);
+    display: grid;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+    grid-template-columns: 2.2rem 1fr;
+    height: 3.15rem;
+    padding: 0 0 0 0.85rem;
+    text-decoration: none;
+    transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.nav-entry span {
+    color: rgba(67, 212, 192, 0.76);
+    font-size: 0.72rem;
+}
+
+.nav-entry:hover,
+.nav-entry.active {
+    border-color: #43d4c0;
+    color: #ffffff;
+    transform: translateX(0.35rem);
+}
+
+.portfolio-content {
+    display: grid;
+    gap: clamp(3rem, 6vw, 4.5rem);
+    padding: clamp(0.75rem, 2.2vw, 1.6rem) clamp(1rem, 5vw, 5rem) clamp(3.5rem, 7vw, 6rem);
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-section {
+    align-content: start;
+    min-height: auto;
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+    scroll-margin-top: 2rem;
+}
+
+.hero-section {
+    align-content: start;
+    padding-top: clamp(1rem, 4vh, 2.5rem);
+}
+
+.portfolio-section h2 {
+    font-size: clamp(1.6rem, 3.2vw, 3.45rem);
+    line-height: 1.06;
+    margin: 0;
+    max-width: 34ch;
+}
+
+.hero-copy,
+.contact-section p,
+.timeline-item p,
+.project-card p,
+.signal-grid span {
+    color: rgba(234, 247, 246, 0.72);
+    line-height: 1.75;
+}
+
+.hero-copy {
+    font-size: clamp(1rem, 1.35vw, 1.16rem);
+    margin: 1.6rem 0 0;
+    max-width: 58rem;
+}
+
+.signal-grid,
+.project-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2rem;
+}
+
+.signal-grid article,
+.project-card,
+.timeline-item {
+    background: rgba(244, 251, 251, 0.045);
+    border: 1px solid rgba(67, 212, 192, 0.14);
+    border-radius: 8px;
+}
+
+.signal-grid article {
+    display: grid;
+    gap: 0.35rem;
+    min-height: 8rem;
+    padding: 1rem;
+}
+
+.timeline {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 58rem;
+}
+
+.timeline-item {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 5rem 1fr;
+    padding: 1.25rem;
+}
+
+.timeline-item > span,
+.project-card > span {
+    color: #43d4c0;
+    font-weight: 700;
+}
+
+.timeline-item h3,
+.project-card h3 {
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+    margin: 0 0 0.5rem;
+}
+
+.project-card {
+    color: #f4fbfb;
+    display: grid;
+    min-height: 13rem;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.project-card:hover {
+    background: rgba(244, 251, 251, 0.07);
+    border-color: rgba(67, 212, 192, 0.44);
+    transform: translateY(-0.25rem);
+}
+
+.project-card h3 {
+    align-self: end;
+}
+
+.contact-section {
+    max-width: 64rem;
+}
+
+.contact-section h2 {
+    max-width: 24ch;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    max-width: 48rem;
+}
+
+.contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.contact-list a {
+    border-bottom: 1px solid rgba(67, 212, 192, 0.76);
+    color: #ffffff;
+    padding-block: 0.25rem;
+    text-decoration: none;
+}
+
+@keyframes drift {
+    from {
+        transform: translate3d(-1rem, -1rem, 0);
+    }
+
+    to {
+        transform: translate3d(1.5rem, 1rem, 0);
+    }
+}
+
+@keyframes scanline {
+    from {
+        transform: translate3d(-8%, 0, 0) skewX(-12deg);
+    }
+
+    to {
+        transform: translate3d(46%, 0, 0) skewX(-12deg);
+    }
+}
+
+@media (max-width: 980px) {
+    .portfolio-page {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-sidebar {
+        backdrop-filter: blur(20px);
+        background: rgba(6, 18, 18, 0.88);
+        gap: 1rem;
+        grid-template-rows: auto auto;
+        min-height: auto;
+        padding: 0.9rem;
+        position: sticky;
+        top: 0;
+    }
+
+    .profile-card {
+        align-items: center;
+        grid-template-columns: auto 1fr;
+        max-width: none;
+        padding: 0.75rem;
+        position: relative;
+        top: auto;
+    }
+
+    .profile-photo {
+        width: 3.8rem;
+    }
+
+    .profile-card h1 {
+        font-size: 1.15rem;
+    }
+
+    .role-text {
+        margin-top: 0.3rem;
+    }
+
+    .portfolio-nav {
+        display: flex;
+        gap: 0.4rem;
+        margin-top: 0;
+        overflow-x: auto;
+        padding-bottom: 0.1rem;
+    }
+
+    .nav-entry {
+        border-left: 0;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+        flex: 0 0 auto;
+        grid-template-columns: auto auto;
+        height: 2.65rem;
+        padding: 0 0.35rem;
+    }
+
+    .nav-entry:hover,
+    .nav-entry.active {
+        transform: translateY(-0.12rem);
+    }
+
+    .portfolio-content {
+        padding-top: 1.5rem;
+    }
+
+    .portfolio-section {
+        min-height: auto;
+        padding-block: 3rem;
+        scroll-margin-top: 12rem;
+    }
+
+    .signal-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .portfolio-page::before {
+        background-size: 44px 44px;
+    }
+
+    .profile-card {
+        grid-template-columns: 3.4rem 1fr;
+    }
+
+    .profile-photo {
+        width: 3.4rem;
+    }
+
+    .profile-kicker {
+        display: none;
+    }
+
+    .portfolio-section h2 {
+        font-size: clamp(1.55rem, 9vw, 2.65rem);
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-list {
+        display: grid;
+    }
+}

@@ -1,0 +1,176 @@
+@page "/"
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+<PageTitle>Carlos Fontes | Backend Developer Portfolio</PageTitle>
+
+<div class="portfolio-page" data-portfolio-page>
+    <aside class="portfolio-sidebar" aria-label="Portfolio navigation">
+        <section class="profile-card">
+            <div class="profile-orbit" aria-hidden="true"></div>
+            <img src="imagem/carlos.png" alt="Carlos Fontes" class="profile-photo" />
+            <div>
+                <p class="profile-kicker">Portfolio</p>
+                <h1>Carlos Fontes</h1>
+                <p class="role-text">Junior Software Developer</p>
+                <p class="profile-note">Looking for a professional internship</p>
+                <a class="cv-download" href="files/carlos-fontes-cv.pdf" download aria-label="Download Carlos Fontes CV">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2" />
+                    </svg>
+                    Download CV
+                </a>
+            </div>
+        </section>
+
+        <nav class="portfolio-nav" aria-label="Sections">
+            <a href="#about" class="nav-entry active" data-section-link="about">
+                <span>01</span>
+                About
+            </a>
+            <a href="#experience" class="nav-entry" data-section-link="experience">
+                <span>02</span>
+                Experience
+            </a>
+            <a href="#projects" class="nav-entry" data-section-link="projects">
+                <span>03</span>
+                Projects
+            </a>
+            <a href="#contact" class="nav-entry" data-section-link="contact">
+                <span>04</span>
+                Contact
+            </a>
+        </nav>
+    </aside>
+
+    <section class="portfolio-content">
+        <section id="about" class="portfolio-section hero-section" data-section>
+            <p class="eyebrow">Junior Software Developer</p>
+            <h2>Growing into backend development through C#, .NET, Java, Python and databases.</h2>
+            <p class="hero-copy">
+                I am Carlos Fontes, a junior software developer completing a Computer Programmer course and doing a
+                curricular internship at Bragalux. I am focused on backend development, data-driven applications and
+                practical systems where clean logic matters.
+            </p>
+            <div class="signal-grid" aria-label="Core backend skills">
+                <article>
+                    <strong>Programming</strong>
+                    <span>C#, Java, Python, VB.NET, object-oriented fundamentals</span>
+                </article>
+                <article>
+                    <strong>Backend learning</strong>
+                    <span>ASP.NET, Flask, CRUD flows, authentication concepts, APIs</span>
+                </article>
+                <article>
+                    <strong>Databases</strong>
+                    <span>SQL, relational models, data validation and business records</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="experience" class="portfolio-section" data-section>
+            <p class="eyebrow">Experience</p>
+            <h2>Training, practice and real workplace exposure.</h2>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <span>Now</span>
+                    <div>
+                        <h3>Curricular Internship at Bragalux</h3>
+                        <p>
+                            Applying development knowledge in a professional environment, learning how software
+                            supports real business processes and improving day-to-day technical discipline.
+                        </p>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <span>2026</span>
+                    <div>
+                        <h3>Completing Computer Programmer Course</h3>
+                        <p>
+                            Finishing a Computer Programmer course with a focus on programming fundamentals,
+                            databases, web applications and practical software projects.
+                        </p>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <span>Goal</span>
+                    <div>
+                        <h3>Professional Backend Internship</h3>
+                        <p>
+                            Seeking an internship where I can contribute to backend features, database-driven
+                            applications and API development while continuing to learn from experienced developers.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects" class="portfolio-section" data-section>
+            <p class="eyebrow">GitHub projects</p>
+            <h2>Projects that show backend logic and data management.</h2>
+            <div class="project-grid">
+                <a class="project-card" href="https://github.com/carlosfontesdev/SCVR-WebApp" target="_blank" rel="noopener noreferrer">
+                    <span>C# / ASP.NET</span>
+                    <h3>SCVR-WebApp</h3>
+                    <p>Football club management web application with store, ticket sales and an admin dashboard.</p>
+                </a>
+                <a class="project-card" href="https://github.com/carlosfontesdev/VET_Clinic_System" target="_blank" rel="noopener noreferrer">
+                    <span>Python / Flask</span>
+                    <h3>VET Clinic System</h3>
+                    <p>Veterinary clinic management system with users, animals and operational records.</p>
+                </a>
+                <a class="project-card" href="https://github.com/carlosfontesdev/Gestao_RH" target="_blank" rel="noopener noreferrer">
+                    <span>Java</span>
+                    <h3>Gestao RH</h3>
+                    <p>Human resources management project built with Java Swing and structured data workflows.</p>
+                </a>
+                <a class="project-card" href="https://github.com/carlosfontesdev/GestaoNotasCsharp" target="_blank" rel="noopener noreferrer">
+                    <span>C#</span>
+                    <h3>Grade Management</h3>
+                    <p>Student grade management and analysis application built with C# Windows Forms.</p>
+                </a>
+                <a class="project-card" href="https://github.com/carlosfontesdev/Quem-Quer-Ser-Milionario-Java" target="_blank" rel="noopener noreferrer">
+                    <span>Java</span>
+                    <h3>Who Wants to Be a Millionaire</h3>
+                    <p>Quiz game inspired by Who Wants to Be a Millionaire, built in Java with game logic and score progression.</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="portfolio-section contact-section" data-section>
+            <p class="eyebrow">Contact</p>
+            <h2>Open to backend internship opportunities.</h2>
+            <p>
+                I am ready to join a team where I can learn, contribute and become stronger in backend development,
+                databases and business applications.
+            </p>
+            <div class="contact-list">
+                <a href="mailto:carlos.1999.fontes@gmail.com">carlos.1999.fontes@gmail.com</a>
+                <a href="https://github.com/carlosfontesdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://pt.linkedin.com/in/carlosfontesdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </section>
+    </section>
+</div>
+
+@code {
+    private IJSObjectReference? module;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./portfolio.js");
+            await module.InvokeVoidAsync("initPortfolioPage");
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.InvokeVoidAsync("disposePortfolioPage");
+            await module.DisposeAsync();
+        }
+    }
+}
